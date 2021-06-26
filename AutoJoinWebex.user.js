@@ -1,12 +1,11 @@
-
 // ==UserScript==
 // @name AutoJoinWebex
-// @namespace Violentmonkey Scripts
+// @namespace V3D4N7
 // @match http*://*.webex.com/webappng/sites/*/meeting/info/*
 // @grant none
 // @version 1.0
 // @author V3D4N7
-// @description 9/15/2020, 2:00:49 PM
+// @description A UserScript to check if meeting is started , and join Automatically.
 // @run-at document-idle
 // ==/UserScript==
 if (document.referrer.search("meeting/download/") == -1) {
