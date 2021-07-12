@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name AutoJoinWebex
-// @namespace V3D4N7V2
+// @namespace https://github.com/V3D4N7V2/AutoJoinWebex
 // @match http*://*.webex.com/webappng/sites/*/meeting/info/*
 // @match http*://*.webex.com/webappng/sites/*/meeting/download/*
 // @grant window.close
@@ -9,7 +9,7 @@
 // @description -
 // @run-at document-start
 // ==/UserScript==
-if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/download/.test(window.location.href) && !(window.location.search == "?join=true")) {
+if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/download/.test(window.location.href) && !(window.location.search == "?launchApp=true")) {
 	window.location.replace(window.location.href.replace("download", "info"));
 }
 if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/info/.test(window.location.href)) {

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name AutoJoinWebex
-// @namespace V3D4N7V2
+// @namespace https://github.com/V3D4N7V2/AutoJoinWebex
 // @match http*://*.webex.com/webappng/sites/*/meeting/info/*
 // @match http*://*.webex.com/webappng/sites/*/meeting/download/*
 // @grant none
