@@ -8,6 +8,8 @@
 // @author V3D4N7V2
 // @description -
 // @run-at document-start
+// @updateURL https://raw.githubusercontent.com/V3D4N7V2/AutoJoinWebex/main/AutoJoinWebex.user.js?token=AQPCK7KVGEAFML5E7W27JGDA6VBI4
+// @downloadURL https://raw.githubusercontent.com/V3D4N7V2/AutoJoinWebex/main/AutoJoinWebex.user.js?token=AQPCK7KVGEAFML5E7W27JGDA6VBI4
 // ==/UserScript==
 if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/download/.test(window.location.href) && !(window.location.search == "?launchApp=true")) {
 	window.location.replace(window.location.href.replace("download", "info"));
