@@ -21,6 +21,11 @@ if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/info/.test(window
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var object = JSON.parse(this.responseText);
+      if (object.meetingStarted == null) {
+        clearInterval(interval);
+        alert("Not Sufficient info , you'll have to join this manually");
+        return;
+      }
 			if (object.meetingHost) {
 				clearInterval(interval);
 			}
@@ -31,28 +36,26 @@ if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/info/.test(window
 		}
 	};
 	interval = setInterval(function() {
+    console.log("checking");
 		xhttp.open("GET", url, true);
 		xhttp.send();
 	}, 5000);
 }
 
 function joinMeeting() {
-	if (document.getElementsByClassName("el-dropdown-menu__item thinclientjoin")[0].getAttribute("aria-checked") == "true") document.getElementById("smartJoinButton-action").click();
-	else {
-		var meetingURL = window.location.href.replace("info", "download");
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				var parser = new DOMParser();
-				var htmlDoc = parser.parseFromString(this.responseText, 'text/html');
-				var extendedData = htmlDoc.getElementById("extendedData").innerHTML;
-				var object = JSON.parse(extendedData);
-				window.location.href = object2.simpleflowMapping.urlProtocollink;
-			}
+  console.log("joining");
+	var meetingURL = window.location.href.replace("info", "download");
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var parser = new DOMParser();
+			var htmlDoc = parser.parseFromString(this.responseText, 'text/html');
+			var extendedData = htmlDoc.getElementById("extendedData").innerHTML;
+			var object = JSON.parse(extendedData);
+			window.location.href = object2.simpleflowMapping.urlProtocollink;
 		}
-		xhttp.open("GET", meetingURL, true);
-		xhttp.send();
 	}
-	
+	xhttp.open("GET", meetingURL, true);
+	xhttp.send();
 	return;
 }
