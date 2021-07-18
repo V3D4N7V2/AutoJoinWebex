@@ -4,7 +4,7 @@
 // @match http*://*.webex.com/webappng/sites/*/meeting/info/*
 // @match http*://*.webex.com/webappng/sites/*/meeting/download/*
 // @grant window.close
-// @version 1.1
+// @version 1.2
 // @author V3D4N7V2
 // @description -
 // @run-at document-start
