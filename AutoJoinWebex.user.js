@@ -4,7 +4,7 @@
 // @match http*://*.webex.com/webappng/sites/*/meeting/info/*
 // @match http*://*.webex.com/webappng/sites/*/meeting/download/*
 // @grant window.close
-// @version 1.2
+// @version 1.3
 // @author V3D4N7V2
 // @description -
 // @run-at document-start
@@ -44,6 +44,10 @@ if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/info/.test(window
 
 function joinMeeting() {
   console.log("joining");
+   if (document.getElementsByClassName("el-dropdown-menu__item thinclientjoin")[0].getAttribute("aria-checked") == "true") {
+	window.location.href = window.location.href.replace("info", "download");
+   }
+   else {
 	var meetingURL = window.location.href.replace("info", "download");
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -57,5 +61,7 @@ function joinMeeting() {
 	}
 	xhttp.open("GET", meetingURL, true);
 	xhttp.send();
+   }
+	
 	return;
 }
