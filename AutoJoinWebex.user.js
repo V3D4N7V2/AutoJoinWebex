@@ -57,7 +57,7 @@ function joinMeeting() {
 			var htmlDoc = parser.parseFromString(this.responseText, 'text/html');
 			var extendedData = htmlDoc.getElementById("extendedData").innerHTML;
 			var object = JSON.parse(extendedData);
-			window.location.href = object2.simpleflowMapping.urlProtocollink;
+			window.location.href = object.simpleflowMapping.urlProtocollink;
 		}
 	}
 	xhttp.open("GET", meetingURL, true);
