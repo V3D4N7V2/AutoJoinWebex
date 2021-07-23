@@ -16,7 +16,7 @@ if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/download/.test(wi
 }
 if (/https*\:\/\/.*\.webex\.com\/webappng\/sites\/.*\/meeting\/info/.test(window.location.href)) {
 	var interval;
-	var url = document.location.origin + "/webappng/api/v1/meetings/" + document.location.pathname.slice(-32);
+	var url = document.location.origin + "/webappng/api/v1/meetings/" + document.location.pathname.slice(-32) + document.getElementsByClassName("auto-select")[0].innerHTML.slice(-39);
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
